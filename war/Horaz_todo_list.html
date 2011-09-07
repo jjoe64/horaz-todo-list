@@ -16,16 +16,67 @@
 		<script type="text/javascript" src="jquery/jquery.mobile.toast.min.js"></script>
 	</head>
 	<body>
-		<div data-role="page">
-			<div data-role="header" data-theme="b">
+		<!-- todo index page -->
+		<div data-role="page" id="page_index">
+			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>TODO List</h1>
+				<a href="#page_item" data-role="button" data-icon="plus" class="ui-btn-right" data-theme="b" id="btn_new">New Item</a>
 			</div>
 			<div data-role="content">
-				<p>This is a sample app.</p>
-				<a href="#" data-role="button" id="button">Click me!</a>
+				<ul id="list_todo" data-role="listview" data-inset="true">
+					<li>
+						<a href="#dialog_item">
+							<h2>Buying new pants</h2>
+							<p>2 pieces of shorts and 1 of blue jeans.</p>
+						</a>
+					</li>
+					<li>
+						<a href="#dialog_item">
+							<h2>Publicize vacation pictures</h2>
+							<p>Copy from SD card to web album.</p>
+						</a>
+					</li>
+				</ul>
 			</div>
-			<div data-role="footer">
-				<h1>powered by Horaz</h1>
+			<div data-role="footer" data-position="fixed">
+				<h4>powered by Horaz</h4>
+			</div>
+		</div>
+		
+		<!-- new/edit item page -->
+		<div data-role="page" id="page_item">
+			<div data-role="header" data-theme="b" data-add-back-btn="true" data-position="fixed">
+				<a onclick="history.back()" data-icon="back">Cancel</a>
+				<h1>Edit TODO Item</h1>
+				<a id="btn_save" href="#page_index" data-role="button" data-icon="check" class="ui-btn-right" data-theme="c">Save</a>
+			</div>
+			<div data-role="content">
+				<form id="form_item">
+					<div data-role="fieldcontain">
+						<label for="title">Title</label>
+						<input type="text" id="title" name="title" />
+					</div>
+					<div data-role="fieldcontain">
+						<label for="notes">Notes</label>
+						<textarea id="notes" name="notes"></textarea>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h4>powered by Horaz</h4>
+			</div>
+		</div>
+		
+		<!-- item selected dialog -->
+		<div data-role="dialog" id="dialog_item">
+			<div data-role="header" data-theme="d">
+				<h1>Options</h1>
+			</div>
+			<div data-role="content">
+				<p>What to do with <span id="label_item"></span>?</p>
+				<a href="#page_item" data-role="button" data-theme="e" id="btn_edit">Edit</a>
+				<a href="#" data-role="button" data-rel="back" data-theme="a" id="btn_delete">Delete</a>
+				<a href="#" data-role="button" data-rel="back">Cancel</a>
 			</div>
 		</div>
 	</body>
