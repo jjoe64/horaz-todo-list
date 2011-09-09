@@ -6,9 +6,9 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link type="text/css" rel="stylesheet" href="Horaz_todo_list.css">
 		<link rel="stylesheet" href="jquery/jquery.mobile-1.0b2.min.css" />
 		<link rel="stylesheet" href="jquery/jquery.mobile.toast.min.css" />
+		<link type="text/css" rel="stylesheet" href="Horaz_todo_list.css">
 		
 		<script type="text/javascript" src="horaz_todo_list/horaz_todo_list.nocache.js"></script>
 		<script type="text/javascript" src="jquery/jquery-1.6.2.min.js"></script>
@@ -30,7 +30,7 @@
 							<p>2 pieces of shorts and 1 of blue jeans.</p>
 						</a>
 					</li>
-					<li>
+					<li class="done">
 						<a href="#dialog_item">
 							<h2>Publicize vacation pictures</h2>
 							<p>Copy from SD card to web album.</p>
@@ -75,6 +75,7 @@
 			<div data-role="content">
 				<p>What to do with <span id="label_item"></span>?</p>
 				<a href="#page_item" data-role="button" data-theme="e" id="btn_edit">Edit</a>
+				<a href="#" data-role="button" data-rel="back" data-theme="c" id="btn_done">Mark as Done</a>
 				<a href="#" data-role="button" data-rel="back" data-theme="a" id="btn_delete">Delete</a>
 				<a href="#" data-role="button" data-rel="back">Cancel</a>
 			</div>
