@@ -16,6 +16,14 @@
 		<script type="text/javascript" src="jquery/jquery.mobile.toast.min.js"></script>
 	</head>
 	<body>
+		<!-- template -->
+		<div id="list_todo_template" style="display:none">
+			<a href="#dialog_item">
+				<h2>{#title#}</h2>
+				<p>{#notes#}</p>
+			</a>
+		</div>
+		
 		<!-- todo index page -->
 		<div data-role="page" id="page_index">
 			<div data-role="header" data-theme="b" data-position="fixed">
@@ -23,19 +31,7 @@
 				<a href="#page_item" data-role="button" data-icon="plus" class="ui-btn-right" data-theme="b" id="btn_new">New Item</a>
 			</div>
 			<div data-role="content">
-				<ul id="list_todo" data-role="listview" data-inset="true">
-					<li>
-						<a href="#dialog_item">
-							<h2>Buying new pants</h2>
-							<p>2 pieces of shorts and 1 of blue jeans.</p>
-						</a>
-					</li>
-					<li class="done">
-						<a href="#dialog_item">
-							<h2>Publicize vacation pictures</h2>
-							<p>Copy from SD card to web album.</p>
-						</a>
-					</li>
+				<ul id="list_todo" data-role="listview" data-inset="true" data-template="list_todo_template">
 				</ul>
 			</div>
 			<div data-role="footer" data-position="fixed">
