@@ -9,7 +9,7 @@ import com.jjoe64.gwtmobile_test.client.horaz.widgets.Toast;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.Toast.Duration;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.events.TapListener;
 
-public class TodoItemPage extends Page {
+public abstract class TodoItemPage extends Page {
 	public TodoItemPage() {
 		// call super with the page element
 		super(getElementById("page_item"));
@@ -26,12 +26,13 @@ public class TodoItemPage extends Page {
 					mdl = new TodoItem();
 					mdl.setFields(form);
 
-					//onNewTodoItem(mdl);
-					new Toast("New Todo Item: "+mdl, Duration.LONG).show();
+					onNewTodoItem(mdl);
 				} catch (ValidationException e) {
 					new Toast("Validation failed: "+e.getField().getName(), Duration.LONG).show();
 				}
 			}
 		});
 	}
+
+	protected abstract void onNewTodoItem(TodoItem mdl);
 }

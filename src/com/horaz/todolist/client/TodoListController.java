@@ -7,9 +7,16 @@ import com.google.gwt.core.client.EntryPoint;
  */
 public class TodoListController implements EntryPoint {
 	private TodoItemPage itemPage;
+	private TodoIndexPage indexPage;
 
 	@Override
 	public void onModuleLoad() {
-		itemPage = new TodoItemPage();
+		indexPage = new TodoIndexPage();
+		itemPage = new TodoItemPage() {
+			@Override
+			protected void onNewTodoItem(TodoItem mdl) {
+				indexPage.getDatastore().add(mdl);
+			}
+		};
 	}
 }
