@@ -1,6 +1,8 @@
 package com.horaz.todolist.client;
 
+import com.google.gwt.dom.client.FormElement;
 import com.google.gwt.user.client.Event;
+import com.jjoe64.gwtmobile_test.client.horaz.model.ValidationException;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.Button;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.Page;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.Toast;
@@ -17,8 +19,18 @@ public class TodoItemPage extends Page {
 		btnSave.addTapListener(new TapListener() {
 			@Override
 			public void onTap(Event event) {
-				// we'll implement this later
-				new Toast("todo...", Duration.SHORT).show();;
+				try {
+					FormElement form = (FormElement) getElementById("form_item");
+
+					TodoItem mdl;
+					mdl = new TodoItem();
+					mdl.setFields(form);
+
+					//onNewTodoItem(mdl);
+					new Toast("New Todo Item: "+mdl, Duration.LONG).show();
+				} catch (ValidationException e) {
+					new Toast("Validation failed: "+e.getField().getName(), Duration.LONG).show();
+				}
 			}
 		});
 	}
