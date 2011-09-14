@@ -23,7 +23,8 @@ public class TodoListController implements EntryPoint {
 			}
 			@Override
 			protected void onDoneClicked() {
-				// TODO Auto-generated method stub
+				lastSelectedItem.setField(TodoItem.FIELD_DONE, true);
+				indexPage.getDatastore().update(lastSelectedItem);
 			}
 			@Override
 			protected void onEditClicked() {

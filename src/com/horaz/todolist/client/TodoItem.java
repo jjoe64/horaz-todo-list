@@ -29,4 +29,12 @@ public class TodoItem extends BaseModel {
 				, new ModelField(FIELD_DONE)
 		};
 	}
+
+	/**
+	 * @return done flag
+	 */
+	public boolean isDone() {
+		Boolean b = (Boolean) getField(TodoItem.FIELD_DONE);
+		return b==null?false:b;
+	}
 }
