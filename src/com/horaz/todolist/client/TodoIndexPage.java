@@ -32,7 +32,7 @@ public class TodoIndexPage extends Page {
 				itm.setField(TodoItem.FIELD_DONE, Boolean.valueOf(attrs.get(TodoItem.FIELD_DONE).isString().stringValue()));
 				return itm;
 			}
-			
+
 			@Override
 			protected JSONObject serializeModel(TodoItem model) {
 				JSONObject r = new JSONObject();
@@ -43,7 +43,16 @@ public class TodoIndexPage extends Page {
 			}
 		};
 		listTodo.setDataStore(datastore);
-		
+
+		listTodo.addItemApplyListener(new ItemApplyListener<TodoItem>() {
+			@Override
+			public void onItemApply(Event event, LIElement liElement, TodoItem model) {
+				if (model.isDone()) {
+					liElement.addClassName("done");
+				}
+			}
+		});
+
 		// load data from storage
 		datastore.load();
 
@@ -52,15 +61,6 @@ public class TodoIndexPage extends Page {
 			@Override
 			public void onWindowClosing(ClosingEvent event) {
 				datastore.save();
-			}
-		});
-
-		listTodo.addItemApplyListener(new ItemApplyListener<TodoItem>() {
-			@Override
-			public void onItemApply(Event event, LIElement liElement, TodoItem model) {
-				if (model.isDone()) {
-					liElement.addClassName("done");
-				}
 			}
 		});
 	}
