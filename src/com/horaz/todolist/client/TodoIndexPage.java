@@ -7,12 +7,12 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.Window.ClosingEvent;
 import com.google.gwt.user.client.Window.ClosingHandler;
-import com.jjoe64.gwtmobile_test.client.horaz.model.PersistentDataStore;
-import com.jjoe64.gwtmobile_test.client.horaz.model.SimpleDataStore;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.Button;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.ListView;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.Page;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.events.ItemApplyListener;
+import com.horaz.client.model.PersistentDataStore;
+import com.horaz.client.model.SimpleDataStore;
+import com.horaz.client.widgets.Button;
+import com.horaz.client.widgets.ListView;
+import com.horaz.client.widgets.Page;
+import com.horaz.client.widgets.events.ItemApplyListener;
 
 public class TodoIndexPage extends Page {
 	private final PersistentDataStore<TodoItem> datastore;

@@ -2,9 +2,9 @@ package com.horaz.todolist.client;
 
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Label;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.Button;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.Page;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.events.TapListener;
+import com.horaz.client.widgets.Button;
+import com.horaz.client.widgets.Page;
+import com.horaz.client.widgets.events.TapListener;
 
 public abstract class TodoItemDialog extends Page {
 	private final Label label;

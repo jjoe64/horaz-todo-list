@@ -4,7 +4,7 @@
   <inherits name='com.google.gwt.user.User'/>
 
   <!-- Other module inherits                                      -->
-  <inherits name="com.jjoe64.gwtmobile_test.GwtMobileTest" />
+  <inherits name="com.horaz.Horaz" />
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.horaz.todolist.client.TodoListController'/>

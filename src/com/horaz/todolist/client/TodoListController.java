@@ -2,8 +2,8 @@ package com.horaz.todolist.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Event;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.events.ItemClickListener;
-import com.jjoe64.gwtmobile_test.client.horaz.widgets.events.TapListener;
+import com.horaz.client.widgets.events.ItemClickListener;
+import com.horaz.client.widgets.events.TapListener;
 
 /**
  * Entry point

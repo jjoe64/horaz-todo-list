@@ -1,7 +1,7 @@
 package com.horaz.todolist.client;
 
-import com.jjoe64.gwtmobile_test.client.horaz.model.BaseModel;
-import com.jjoe64.gwtmobile_test.client.horaz.model.Validation;
+import com.horaz.client.model.BaseModel;
+import com.horaz.client.model.Validation;
 
 /**
  * own model class, that represent a single ToDo-list item
