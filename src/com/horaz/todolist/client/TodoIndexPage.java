@@ -1,7 +1,13 @@
 package com.horaz.todolist.client;
 
 import com.google.gwt.dom.client.LIElement;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.Window.ClosingEvent;
+import com.google.gwt.user.client.Window.ClosingHandler;
+import com.jjoe64.gwtmobile_test.client.horaz.model.PersistentDataStore;
 import com.jjoe64.gwtmobile_test.client.horaz.model.SimpleDataStore;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.Button;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.ListView;
@@ -9,7 +15,7 @@ import com.jjoe64.gwtmobile_test.client.horaz.widgets.Page;
 import com.jjoe64.gwtmobile_test.client.horaz.widgets.events.ItemApplyListener;
 
 public class TodoIndexPage extends Page {
-	private final SimpleDataStore<TodoItem> datastore;
+	private final PersistentDataStore<TodoItem> datastore;
 	private final ListView<TodoItem> listTodo;
 
 	public TodoIndexPage() {
@@ -17,8 +23,37 @@ public class TodoIndexPage extends Page {
 		super(getElementById("page_index"));
 
 		listTodo = ListView.byId("list_todo");
-		datastore = new SimpleDataStore<TodoItem>();
+		datastore = new PersistentDataStore<TodoItem>("todoListStore") {
+			@Override
+			protected TodoItem deserializeModel(JSONObject attrs) {
+				TodoItem itm = new TodoItem();
+				itm.setField(TodoItem.FIELD_TITLE, attrs.get(TodoItem.FIELD_TITLE).isString().stringValue());
+				itm.setField(TodoItem.FIELD_NOTES, attrs.get(TodoItem.FIELD_NOTES).isString().stringValue());
+				itm.setField(TodoItem.FIELD_DONE, Boolean.valueOf(attrs.get(TodoItem.FIELD_DONE).isString().stringValue()));
+				return itm;
+			}
+			
+			@Override
+			protected JSONObject serializeModel(TodoItem model) {
+				JSONObject r = new JSONObject();
+				r.put(TodoItem.FIELD_TITLE, new JSONString((String) model.getField(TodoItem.FIELD_TITLE)));
+				r.put(TodoItem.FIELD_NOTES, new JSONString((String) model.getField(TodoItem.FIELD_NOTES)));
+				r.put(TodoItem.FIELD_DONE, new JSONString(String.valueOf(model.isDone())));
+				return r;
+			}
+		};
 		listTodo.setDataStore(datastore);
+		
+		// load data from storage
+		datastore.load();
+
+		// register for saving
+		Window.addWindowClosingHandler(new ClosingHandler() {
+			@Override
+			public void onWindowClosing(ClosingEvent event) {
+				datastore.save();
+			}
+		});
 
 		listTodo.addItemApplyListener(new ItemApplyListener<TodoItem>() {
 			@Override
