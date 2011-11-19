@@ -16,30 +16,11 @@ import com.horaz.client.widgets.events.ItemApplyListener;
 
 public class TodoIndexPage extends Page {
 	private PersistentDataStore<TodoItem> datastore;
-	private ListView<TodoItem> listTodo;
+	private final ListView<TodoItem> listTodo;
 
 	public TodoIndexPage() {
 		// call super with the page element
 		super(getElementById("page_index"));
-	}
-
-	public Button getButtonNew() {
-		return Button.byId("btn_new");
-	}
-
-	/**
-	 * @return todo list's datastore
-	 */
-	public SimpleDataStore<TodoItem> getDatastore() {
-		return datastore;
-	}
-
-	public ListView<TodoItem> getListView() {
-		return listTodo;
-	}
-
-	@Override
-	public void onCreate() {
 		listTodo = ListView.byId("list_todo");
 		datastore = new PersistentDataStore<TodoItem>("todoListStore") {
 			@Override
@@ -81,5 +62,24 @@ public class TodoIndexPage extends Page {
 				datastore.save();
 			}
 		});
+	}
+
+	public Button getButtonNew() {
+		return Button.byId("btn_new");
+	}
+
+	/**
+	 * @return todo list's datastore
+	 */
+	public SimpleDataStore<TodoItem> getDatastore() {
+		return datastore;
+	}
+
+	public ListView<TodoItem> getListView() {
+		return listTodo;
+	}
+
+	@Override
+	public void onCreate() {
 	}
 }
