@@ -1,6 +1,7 @@
 package com.horaz.todolist.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.user.client.Event;
 import com.horaz.client.widgets.events.ItemClickListener;
 import com.horaz.client.widgets.events.TapListener;
@@ -51,9 +52,9 @@ public class TodoListController implements EntryPoint {
 		};
 		indexPage.getListView().addItemClickListener(new ItemClickListener<TodoItem>() {
 			@Override
-			public void onItemClick(Event event, TodoItem item) {
-				lastSelectedItem = item;
-				itemDialog.setSelectedItem(item);
+			public void onItemClick(Event event, TodoItem model, AnchorElement aElm) {
+				lastSelectedItem = model;
+				itemDialog.setSelectedItem(model);
 			}
 		});
 	}

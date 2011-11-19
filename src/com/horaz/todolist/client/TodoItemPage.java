@@ -17,7 +17,10 @@ public abstract class TodoItemPage extends Page {
 	public TodoItemPage() {
 		// call super with the page element
 		super(getElementById("page_item"));
+	}
 
+	@Override
+	public void onCreate() {
 		// set the save button tap listener
 		Button btnSave = Button.byId("btn_save");
 		btnSave.addTapListener(new TapListener() {
