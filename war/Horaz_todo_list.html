@@ -6,16 +6,17 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link rel="stylesheet" href="jquery/jquery.mobile-1.0b3.min.css" />
+		<link rel="stylesheet" href="jquery/jquery.mobile.min.css" />
 		<link rel="stylesheet" href="jquery/jquery.mobile.toast.min.css" />
 		<link type="text/css" rel="stylesheet" href="Horaz_todo_list.css">
-		<link rel="stylesheet" href="jquery/jquery.mobile.android-theme.css" />
+		<link rel="stylesheet" href="jquery/android-theme.css" />
 		
 		<script type="text/javascript" src="horaz_todo_list/horaz_todo_list.nocache.js"></script>
 		<script type="text/javascript" src="jquery/jquery-1.6.2.min.js"></script>
-		<script type="text/javascript" src="jquery/jquery.mobile-1.0b3.min.js"></script>
+		<script type="text/javascript" src="jquery/jquery.mobile.min.js"></script>
 		<script type="text/javascript" src="jquery/jquery.mobile.toast.min.js"></script>
 		<script type="text/javascript" src="jquery/jquery.mobile.android-theme.js"></script>
+		
 	</head>
 	<body>
 		<!-- template -->
@@ -27,28 +28,28 @@
 		</div>
 		
 		<!-- todo index page -->
-		<div data-role="page" id="page_index">
-			<div data-role="header" data-theme="b" data-position="fixed">
+		<div data-role="page" id="page_index" data-theme="c">
+			<div data-role="header" data-theme="c" data-position="fixed">
 				<h1>TODO List</h1>
-				<a href="#page_item" data-role="button" data-icon="plus" class="ui-btn-right" data-theme="b" id="btn_new">New Item</a>
+				<a href="#page_item" data-role="button" data-icon="plus" class="ui-btn-right" data-theme="c" id="btn_new">New Item</a>
 			</div>
-			<div data-role="content">
-				<ul id="list_todo" data-role="listview" data-inset="true" data-template="list_todo_template">
+			<div data-role="content" data-theme="c">
+				<ul id="list_todo" data-role="listview" data-inset="true" data-template="list_todo_template" data-theme="c">
 				</ul>
 			</div>
-			<div data-role="footer" data-position="fixed">
+			<div data-role="footer" data-position="fixed" data-theme="c">
 				<h4>powered by Horaz</h4>
 			</div>
 		</div>
 		
 		<!-- new/edit item page -->
-		<div data-role="page" id="page_item">
-			<div data-role="header" data-theme="b" data-add-back-btn="true" data-position="fixed">
-				<a onclick="history.back()" data-icon="back" class="hide-on-android">Cancel</a>
+		<div data-role="page" id="page_item" data-theme="c">
+			<div data-role="header" data-theme="c" data-add-back-btn="true" data-position="fixed">
+				<a onclick="history.back()" data-icon="back" class="hide-on-android" data-theme="c">Cancel</a>
 				<h1>Edit TODO Item</h1>
 				<a id="btn_save" href="#page_index" data-role="button" data-icon="check" class="ui-btn-right" data-theme="c">Save</a>
 			</div>
-			<div data-role="content">
+			<div data-role="content" data-theme="c">
 				<form id="form_item">
 					<div data-role="fieldcontain">
 						<label for="title">Title</label>
@@ -60,22 +61,22 @@
 					</div>
 				</form>
 			</div>
-			<div data-role="footer" data-position="fixed">
+			<div data-role="footer" data-position="fixed" data-theme="c">
 				<h4>powered by Horaz</h4>
 			</div>
 		</div>
 		
 		<!-- item selected dialog -->
-		<div data-role="dialog" id="dialog_item">
-			<div data-role="header" data-theme="d">
+		<div data-role="dialog" id="dialog_item" data-theme="a">
+			<div data-role="header" data-theme="a">
 				<h1>Options</h1>
 			</div>
-			<div data-role="content">
+			<div data-role="content" data-theme="a">
 				<p>What to do with <span id="label_item"></span>?</p>
 				<a href="#page_item" data-role="button" data-theme="c" id="btn_edit">Edit</a>
 				<a href="#" data-role="button" data-rel="back" data-theme="c" id="btn_done">Mark as Done</a>
 				<a href="#" data-role="button" data-rel="back" data-theme="c" id="btn_delete">Delete</a>
-				<a href="#" data-role="button" data-rel="back">Cancel</a>
+				<a href="#" data-role="button" data-rel="back" data-theme="a">Cancel</a>
 			</div>
 		</div>
 	</body>

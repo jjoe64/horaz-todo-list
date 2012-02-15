@@ -7,17 +7,16 @@ import com.horaz.client.widgets.Page;
 import com.horaz.client.widgets.events.TapListener;
 
 public abstract class TodoItemDialog extends Page {
-	private Label label;
+	private final Label label;
 
 	public TodoItemDialog() {
 		super(getElementById("dialog_item"));
+		// get the placeholder <span>
+		label = Label.wrap(getElementById("label_item"));
 	}
 
 	@Override
 	public void onCreate() {
-		// get the placeholder <span>
-		label = Label.wrap(getElementById("label_item"));
-
 		// buttons
 		Button btnDelete = Button.byId("btn_delete");
 		btnDelete.addTapListener(new TapListener() {

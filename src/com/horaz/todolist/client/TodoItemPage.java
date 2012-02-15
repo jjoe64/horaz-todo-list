@@ -42,6 +42,9 @@ public abstract class TodoItemPage extends Page {
 					} else {
 						onNewTodoItem(mdl);
 					}
+
+					((InputElement) getElementById("title")).setValue("");
+					((InputElement) getElementById("notes")).setValue("");
 				} catch (ValidationException e) {
 					new Toast("Validation failed: "+e.getField().getName(), Duration.LONG).show();
 				}
