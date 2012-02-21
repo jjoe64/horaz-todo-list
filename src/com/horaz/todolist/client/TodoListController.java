@@ -35,6 +35,7 @@ public class TodoListController implements EntryPoint {
 			@Override
 			protected void onEditClicked() {
 				itemPage.startEditing(lastSelectedItem);
+				itemPage.show();
 			}
 		};
 		indexPage = new TodoIndexPage();
@@ -43,6 +44,7 @@ public class TodoListController implements EntryPoint {
 			public void onTap(Event event) {
 				// no editing, create new
 				itemPage.startEditing(null);
+				itemPage.show();
 			}
 		});
 		itemPage = new TodoItemPage() {

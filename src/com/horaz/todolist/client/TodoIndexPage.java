@@ -23,7 +23,7 @@ public class TodoIndexPage extends Page {
 		// call super with the page element
 		super(getElementById("page_index"));
 		listTodo = AsynchronousListView.byId("list_todo");
-		datastore = new SQLiteDataStore<TodoItem>("todo.db", "1", 1024*1024*128) {
+		datastore = new SQLiteDataStore<TodoItem>("todo.db2", "2", 20000) {
 			@Override
 			public TodoItem reflectJavaScriptObject(JavaScriptObject jsObj) {
 				ModelWrapperJS mdlJs = (ModelWrapperJS) jsObj;

@@ -31,7 +31,7 @@
 		<div data-role="page" id="page_index" data-theme="c">
 			<div data-role="header" data-theme="c" data-position="fixed">
 				<h1>TODO List</h1>
-				<a href="#page_item" data-role="button" data-icon="plus" class="ui-btn-right" data-theme="c" id="btn_new">New Item</a>
+				<a data-role="button" data-icon="plus" class="ui-btn-right" data-theme="c" id="btn_new">New Item</a>
 			</div>
 			<div data-role="content" data-theme="c">
 				<ul id="list_todo" data-role="listview" data-inset="true" data-template="list_todo_template" data-theme="c">
@@ -45,9 +45,9 @@
 		<!-- new/edit item page -->
 		<div data-role="page" id="page_item" data-theme="c">
 			<div data-role="header" data-theme="c" data-add-back-btn="true" data-position="fixed">
-				<a onclick="history.back()" data-icon="back" class="hide-on-android" data-theme="c">Cancel</a>
+				<a data-rel="back" data-icon="back" class="hide-on-android" data-theme="c">Cancel</a>
 				<h1>Edit TODO Item</h1>
-				<a id="btn_save" href="#page_index" data-role="button" data-icon="check" class="ui-btn-right" data-theme="c">Save</a>
+				<a id="btn_save" data-role="button" data-icon="check" class="ui-btn-right" data-theme="c">Save</a>
 			</div>
 			<div data-role="content" data-theme="c">
 				<form id="form_item">
@@ -73,7 +73,7 @@
 			</div>
 			<div data-role="content" data-theme="a">
 				<p>What to do with <span id="label_item"></span>?</p>
-				<a href="#page_item" data-role="button" data-theme="c" id="btn_edit">Edit</a>
+				<a data-role="button" data-theme="c" id="btn_edit">Edit</a>
 				<a href="#" data-role="button" data-rel="back" data-theme="c" id="btn_done">Mark as Done</a>
 				<a href="#" data-role="button" data-rel="back" data-theme="c" id="btn_delete">Delete</a>
 				<a href="#" data-role="button" data-rel="back" data-theme="a">Cancel</a>

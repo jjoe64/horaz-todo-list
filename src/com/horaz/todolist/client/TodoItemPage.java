@@ -45,6 +45,8 @@ public abstract class TodoItemPage extends Page {
 
 					((InputElement) getElementById("title")).setValue("");
 					((InputElement) getElementById("notes")).setValue("");
+
+					Page.byId("page_index").show();
 				} catch (ValidationException e) {
 					new Toast("Validation failed: "+e.getField().getName(), Duration.LONG).show();
 				}
